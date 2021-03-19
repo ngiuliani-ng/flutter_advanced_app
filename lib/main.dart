@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(App());
@@ -7,6 +8,11 @@ void main() {
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+      ),
+    );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -44,8 +50,9 @@ class HomePage extends StatelessWidget {
   }
 
   Widget backgroundImage() {
-    return Container(
-      color: Colors.teal,
+    return Image.asset(
+      "assets/images/background.jpg",
+      fit: BoxFit.cover,
     );
   }
 
