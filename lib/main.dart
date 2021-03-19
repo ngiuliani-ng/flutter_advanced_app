@@ -8,8 +8,13 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        primaryColor: Colors.black,
+        primaryColorLight: Colors.white,
+      ),
+      home: HomePage(),
     );
   }
 }
@@ -31,7 +36,7 @@ class HomePage extends StatelessWidget {
             bottom: 0,
             left: 0,
             right: 0,
-            child: loginPanel(),
+            child: loginPanel(context),
           ),
         ],
       ),
@@ -44,11 +49,11 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget loginPanel() {
+  Widget loginPanel(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(32),
       decoration: BoxDecoration(
-        color: Colors.black,
+        color: Theme.of(context).primaryColor,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(32),
           topRight: Radius.circular(32),
@@ -77,7 +82,7 @@ class HomePage extends StatelessWidget {
           SizedBox(
             height: 16,
           ),
-          buttons(),
+          buttons(context),
         ],
       ),
     );
@@ -87,7 +92,6 @@ class HomePage extends StatelessWidget {
     return Text(
       "Find creative jobs and",
       style: TextStyle(
-        color: Colors.white,
         fontSize: 18,
       ),
     );
@@ -97,7 +101,6 @@ class HomePage extends StatelessWidget {
     return Text(
       "Express your Best Self.",
       style: TextStyle(
-        color: Colors.white,
         fontSize: 26,
         fontWeight: FontWeight.bold,
       ),
@@ -108,13 +111,12 @@ class HomePage extends StatelessWidget {
     return Text(
       "Ideas come from a workspace you enjoy being in and they push you to become a better version of yourself.",
       style: TextStyle(
-        color: Colors.white,
         fontSize: 14,
       ),
     );
   }
 
-  Widget buttons() {
+  Widget buttons(BuildContext context) {
     return Row(
       children: [
         Expanded(
@@ -122,21 +124,21 @@ class HomePage extends StatelessWidget {
           child: MaterialButton(
             onPressed: () {},
             height: 52,
-            color: Colors.black,
+            color: Theme.of(context).primaryColor,
             child: Text(
               "Login Now",
               style: TextStyle(
                 fontSize: 14,
+                color: Theme.of(context).primaryColorLight,
               ),
             ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
               side: BorderSide(
                 width: 1,
-                color: Colors.white,
+                color: Theme.of(context).primaryColorLight,
               ),
             ),
-            textColor: Colors.white,
           ),
         ),
         SizedBox(
@@ -147,18 +149,19 @@ class HomePage extends StatelessWidget {
           child: MaterialButton(
             onPressed: () {},
             height: 52,
-            color: Colors.white,
+            color: Theme.of(context).primaryColorLight,
             child: Text(
               "Create New Account",
               style: TextStyle(
                 fontSize: 14,
+                color: Theme.of(context).primaryColor,
               ),
             ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
               side: BorderSide(
                 width: 1,
-                color: Colors.black,
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),
