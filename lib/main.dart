@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+// import 'package:google_fonts/google_fonts.dart';
+
 void main() {
   runApp(App());
 }
@@ -19,6 +21,7 @@ class App extends StatelessWidget {
         brightness: Brightness.dark,
         primaryColor: Colors.black,
         primaryColorLight: Colors.white,
+        fontFamily: "NotoSerifKR",
       ),
       home: HomePage(),
     );
@@ -124,56 +127,63 @@ class HomePage extends StatelessWidget {
   }
 
   Widget buttons(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          flex: 1,
-          child: MaterialButton(
-            onPressed: () {},
-            height: 52,
-            color: Theme.of(context).primaryColor,
-            child: Text(
-              "Login Now",
-              style: TextStyle(
-                fontSize: 14,
-                color: Theme.of(context).primaryColorLight,
-              ),
+    return Theme(
+      data: Theme.of(context).copyWith(
+        textTheme: Theme.of(context).textTheme.apply(
+              fontFamily: "Roboto",
             ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-              side: BorderSide(
-                width: 1,
-                color: Theme.of(context).primaryColorLight,
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            flex: 1,
+            child: MaterialButton(
+              onPressed: () {},
+              height: 52,
+              color: Theme.of(context).primaryColor,
+              child: Text(
+                "Login Now",
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Theme.of(context).primaryColorLight,
+                ),
               ),
-            ),
-          ),
-        ),
-        SizedBox(
-          width: 16,
-        ),
-        Expanded(
-          flex: 2,
-          child: MaterialButton(
-            onPressed: () {},
-            height: 52,
-            color: Theme.of(context).primaryColorLight,
-            child: Text(
-              "Create New Account",
-              style: TextStyle(
-                fontSize: 14,
-                color: Theme.of(context).primaryColor,
-              ),
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-              side: BorderSide(
-                width: 1,
-                color: Theme.of(context).primaryColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+                side: BorderSide(
+                  width: 1,
+                  color: Theme.of(context).primaryColorLight,
+                ),
               ),
             ),
           ),
-        ),
-      ],
+          SizedBox(
+            width: 16,
+          ),
+          Expanded(
+            flex: 2,
+            child: MaterialButton(
+              onPressed: () {},
+              height: 52,
+              color: Theme.of(context).primaryColorLight,
+              child: Text(
+                "Create New Account",
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Theme.of(context).primaryColor,
+                ),
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+                side: BorderSide(
+                  width: 1,
+                  color: Theme.of(context).primaryColor,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
