@@ -127,6 +127,8 @@ class HomePage extends StatelessWidget {
   }
 
   Widget buttons(BuildContext context) {
+    /// La [Row] in cui sono presenti i 2 [MaterialButton] è stata incapsulata dentro il [theme]
+    /// per poter sovrascrivere il tema definito inizialmente nella [MaterialApp].
     return Theme(
       data: Theme.of(context).copyWith(
         textTheme: Theme.of(context).textTheme.apply(
@@ -136,6 +138,10 @@ class HomePage extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
+            /// Il componente presente come [child] dovrà espendersi per 1 unità.
+            /// Quante sono le unità disponibili?
+            /// Le unità disponibili vengono calcolate dal motore grafico sommando i [flex] presenti,
+            /// in questo caso sono 3.
             flex: 1,
             child: MaterialButton(
               onPressed: () {},
@@ -161,6 +167,10 @@ class HomePage extends StatelessWidget {
             width: 16,
           ),
           Expanded(
+            /// Il componente presente come [child] dovrà espendersi per 2 unità.
+            /// Quante sono le unità disponibili?
+            /// Le unità disponibili vengono calcolate dal motore grafico sommando i [flex] presenti,
+            /// in questo caso sono 3.
             flex: 2,
             child: MaterialButton(
               onPressed: () {},
